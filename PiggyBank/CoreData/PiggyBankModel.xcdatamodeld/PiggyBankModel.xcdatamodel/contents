@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23507" systemVersion="24B91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="PiggyBank" representedClassName=".PiggyBank" syncable="YES">
+        <attribute name="currentAmount" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="goal" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="piggyBank" inverseEntity="Transaction"/>
+    </entity>
+    <entity name="Transaction" representedClassName=".Transaction" syncable="YES">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <relationship name="piggyBank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PiggyBank" inverseName="transactions" inverseEntity="PiggyBank"/>
+    </entity>
+</model>
